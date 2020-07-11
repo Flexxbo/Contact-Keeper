@@ -137,4 +137,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+default.json
 # End of https://www.toptal.com/developers/gitignore/api/windows,node
