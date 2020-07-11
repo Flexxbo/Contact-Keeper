@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const bcrypt = require("bcryptjs");
-const { check, validationResult } = require("express-validator/check"); //+here you can see what rules apply to the endpoints
+const { check, validationResult } = require("express-validator"); //+here you can see what rules apply to the endpoints
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const auth = require("../middleware/auth");
