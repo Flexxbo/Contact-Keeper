@@ -14,7 +14,7 @@ const connectDB = async () => {
     console.error(err.message);
     process.exit(1);
   }
-  //+++ THis would also be possible without async await
+  //+++ This would also be possible without async await
   /*
     mongoose
     .connect(db, {
