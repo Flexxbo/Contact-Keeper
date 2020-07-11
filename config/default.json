@@ -1,0 +1,5 @@
+// +++purpose of this file is for global variables+++
+
+{
+  "mongoURI": "mongodb+srv://felix123:123felix123@cluster0.9tgtg.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
