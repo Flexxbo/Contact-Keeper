@@ -30,6 +30,16 @@ export default (state, action) => {
           contact.id === action.payload.id ? action.payload : contact
         ),
       };
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((contact) => {
+          const regex = new RegExp(`${action.payload}`, "gi"); //!This looks for a text (Regular Expression) with parameter gi=globa&Insensitive
+          return contact.name.match(regex) || contact.email.match(regex); //! This is where Regular Expression matches a contact name or email
+        }),
+      };
+    case CLEAR_FILTER:
+      return { ...state, filtered: null };
     default:
       return state;
   }
