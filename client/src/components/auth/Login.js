@@ -18,7 +18,7 @@ const Login = (props) => {
       setAlert(error, "danger");
       clearErrors();
     }
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
@@ -33,9 +33,12 @@ const Login = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
-      setAlert("Please fill in all fields");
+      setAlert("Please fill in all fields", "danger");
     } else {
-      login({ email, password });
+      login({
+        email,
+        password,
+      });
     }
   };
 
@@ -48,6 +51,7 @@ const Login = (props) => {
         <div className='form-group'>
           <label htmlFor='email'>Email Address</label>
           <input
+            id='email'
             type='email'
             name='email'
             value={email}
@@ -58,6 +62,7 @@ const Login = (props) => {
         <div className='form-group'>
           <label htmlFor='password'>Password</label>
           <input
+            id='password'
             type='password'
             name='password'
             value={password}
@@ -65,14 +70,14 @@ const Login = (props) => {
             required
           />
         </div>
-
         <input
           type='submit'
-          name='Login'
+          value='Login'
           className='btn btn-primary btn-block'
         />
       </form>
     </div>
   );
 };
+
 export default Login;

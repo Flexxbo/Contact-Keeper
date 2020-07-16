@@ -5,10 +5,11 @@ import ContactContext from "../../context/contact/contactContext";
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
-  const { id, name, email, phone, type } = contact;
+
+  const { _id, name, email, phone, type } = contact;
 
   const onDelete = () => {
-    deleteContact(id);
+    deleteContact(_id);
     clearCurrent();
   };
 
@@ -19,23 +20,22 @@ const ContactItem = ({ contact }) => {
         <span
           style={{ float: "right" }}
           className={
-            "badge " + // !!! Achtung hier muss ein space nach badge rein sonst wird die Klasse nicht richtig erkannt
+            "badge " +
             (type === "professional" ? "badge-success" : "badge-primary")
           }
         >
-          {type.charAt(0).toUpperCase() + type.slice(1)}{" "}
-          {/* //+ toUpperCase anPositon 0 und dann + den Rest des Wortes minus den ersten Buchstaben*/}
+          {type.charAt(0).toUpperCase() + type.slice(1)}
         </span>
       </h3>
       <ul className='list'>
         {email && (
           <li>
-            <i className='fas fa-envelope-open'> {email}</i>
+            <i className='fas fa-envelope-open' /> {email}
           </li>
         )}
         {phone && (
           <li>
-            <i className='fas fa-phone'> {phone}</i>
+            <i className='fas fa-phone' /> {phone}
           </li>
         )}
       </ul>
@@ -54,6 +54,8 @@ const ContactItem = ({ contact }) => {
   );
 };
 
-ContactItem.propTypes = { contact: PropTypes.object.isRequired };
+ContactItem.propTypes = {
+  contact: PropTypes.object.isRequired,
+};
 
 export default ContactItem;
